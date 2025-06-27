@@ -34,3 +34,4 @@ go.work.sum
 
 # DB Folder
 db/
+.vscode/launch.json
