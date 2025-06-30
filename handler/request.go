@@ -44,3 +44,20 @@ func (r *CreateOpeningRequest) Validate() error {
 	}
 	return nil
 }
+
+type UpdateOpeningRequest struct {
+	Title    string          `json:"title"`
+	Role     string          `json:"role"`
+	Company  string          `json:"company"`
+	Location string          `json:"location"`
+	Remote   *bool           `json:"remote"`
+	Salary   decimal.Decimal `json:"salary"`
+	Link     string          `json:"link"`
+}
+
+func (r *UpdateOpeningRequest) Validate() error {
+	if r.Title == "" || r.Role == "" || r.Company == "" || r.Location == "" || r.Salary.LessThanOrEqual(decimal.Zero) || r.Link == "" || r.Remote == nil {
+		return fmt.Errorf("all fields are required")
+	}
+	return nil
+}

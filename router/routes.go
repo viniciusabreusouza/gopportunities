@@ -12,8 +12,8 @@ func initializeRouter(router *gin.Engine) {
 	{
 		// r.GET("/health", handler.CreateHealthHandler)
 		r.POST("/opening", handler.CreateOpeningHandler)
-		// r.PUT("/opening", handler.UpdateOpeningHandler)
-		r.DELETE("/opening", handler.DeleteOpeningHandler)
-		// r.GET("/openings", handler.ListOpeningHandler)
+		r.PUT("/opening/:id", handler.UpdateOpeningHandler)
+		r.DELETE("/opening/:id", handler.DeleteOpeningHandler)
+		r.GET("/openings", handler.ListOpeningHandler)
 	}
 }
